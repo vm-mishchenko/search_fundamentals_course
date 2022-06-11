@@ -4,9 +4,15 @@
 # mapping
 GET /bbuy_products
 
-GET bbuy_products/_search
+GET /bbuy_products/_search
 
-GET bbuy_products/_count
+GET /bbuy_products/_count
+
+# check whether index exists
+HEAD /bbuy_products
+
+# delete index
+DELETE /bbuy_products
 
 
 # sku
@@ -80,5 +86,4 @@ GET bbuy_products/_search
     }
   }
 }
-
 ```

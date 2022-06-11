@@ -171,21 +171,28 @@ def print_number_of_docs_in_os(client, index_name):
 @click.option('--source_dir', '-s', default="/workspace/datasets/product_data/products", help='XML files source directsory')
 @click.option('--index_name', '-i', default="bbuy_products", help="The name of the index to write to")
 @click.option('--called_from_index_data', '-c', default="false", help="The name of the index to write to")
-def main(source_dir: str, index_name: str, called_from_index_data: str):
+@click.option('--workers', '-w', default=8, help="The name of the index to write to")
+def main(source_dir: str, index_name: str, called_from_index_data: str, workers: int):
     client = get_opensearch()
 
-    # re-create index from scratch
-    if called_from_index_data == 'false':
-        if index_exists(client, index_name):
-            delete_index(client, index_name)
-        create_index(client, index_name)
-
-    # To test on a smaller set of documents, change this g]lob to be more restrictive than *.xml
+    # To test on a smaller set of documents, change this glob to be more restrictive than *.xml
     glob_example_product = '/workspace/search_fundamentals_course/document-examples/product.xml'
     glob_example_products = source_dir + "/products_0120_11768321_to_11821246.xml"
     glob_all_products = source_dir + "/*.xml"
+    active_glob = glob_all_products
 
-    files = glob.glob(glob_all_products)
+    # re-create index from scratch
+    if is_debug_mode(called_from_index_data):
+        logger.info(f'DEBUG MODE.')
+        if index_exists(client, index_name):
+            delete_index(client, index_name)
+        create_index(client, index_name)
+    else:
+        logger.info(f'index_data.sh MODE.')
+        if active_glob != glob_all_products:
+            raise Exception('Double check active_globe')
+
+    files = glob.glob(active_glob)
     docs_indexed = 0
     tic = time.perf_counter()
     docs = []
@@ -208,10 +215,10 @@ def main(source_dir: str, index_name: str, called_from_index_data: str):
 
             #### Step 2.b: Create a valid OpenSearch Doc and bulk index 2000 docs at a time
             the_doc = doc.copy()
-            the_doc['_id'] = the_doc['sku'][0]
+            the_doc['id'] = the_doc['sku'][0]
             the_doc['_index'] = index_name
 
-            assert the_doc['_id'] is not None, "doc_id is required"
+            assert the_doc['id'] is not None, "document 'id' is required"
 
             docs.append(the_doc)
 
@@ -228,14 +235,15 @@ def main(source_dir: str, index_name: str, called_from_index_data: str):
 
     toc = time.perf_counter()
     logger.info(f'Done. Total docs: {docs_indexed}.  Total time: {((toc - tic) / 60):0.3f} mins.')
-    print_number_of_docs_in_os(client, index_name)
 
 # Helpers not related to Open Search
 def print_value_for_field(doc, field_name):
     values = doc[field_name]
-
     if len(values) > 0:
         logger.info(f'{field_name}: {values}')
+
+def is_debug_mode(called_from_index_data):
+    return called_from_index_data == 'false'
 
 if __name__ == "__main__":
     main()
