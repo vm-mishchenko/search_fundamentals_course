@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PWA">
+    <option name="wasEnabledAtLeastOnce" value="true" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="UnattendedHostPersistenceState">
+    <option name="openedFilesInfos">
+      <list>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="3429" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/opensearch/opensearch_week1_toy.py" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="5844" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/week1/index_products.py" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="501" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/document-examples/product.xml" />
+        </OpenedFileInfo>
+      </list>
+    </option>
+  </component>
+</project>

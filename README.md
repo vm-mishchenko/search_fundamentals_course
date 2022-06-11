@@ -1,4 +1,4 @@
-# Welcome to Search Fundamentals
+-u# Welcome to Search Fundamentals
 
 Search Fundamentals is a two week class taught by Grant Ingersoll and Daniel Tunkelang and is focused on helping students
 quickly get up to speed on search by teaching the basics of search like indexing, querying, faceting/aggregations, spell checking, typeahead autocomplete and highlighting.

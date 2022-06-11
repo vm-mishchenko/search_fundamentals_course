@@ -90,7 +90,6 @@ for doc in docs:
 print(client.cat.count(index_name, params={"v": "true"}))
 
 # Get the index mappings
-
 print(client.indices.get_mapping(index_name))
 
 # Create a new index, this time with different mappings

@@ -1,0 +1,278 @@
+<products>
+    <product>
+        <sku>1</sku>
+        <productId>0</productId>
+        <name>Nikon 1 J1 10.1MP Silver Camera Kit, Bag, 8GB Memory Card &amp; Extra 10mm Lens</name>
+        <source>bestbuy</source>
+        <type>Bundle</type>
+        <startDate>2012-07-01</startDate>
+        <new>true</new>
+        <active>true</active>
+        <activeUpdateDate>2012-07-26T11:30:59</activeUpdateDate>
+        <regularPrice>679.96</regularPrice>
+        <salePrice>679.96</salePrice>
+        <onSale>false</onSale>
+        <planPrice/>
+        <priceWithPlan/>
+        <advertisedPriceRestriction>false</advertisedPriceRestriction>
+        <minimumDisplayPrice/>
+        <restrictedSalePrice>679.96</restrictedSalePrice>
+        <icrType/>
+        <icrStartDate/>
+        <icrEndDate/>
+        <priceUpdateDate>2012-07-26T11:05:17</priceUpdateDate>
+        <digital>false</digital>
+        <preowned>false</preowned>
+        <outletCenter/>
+        <secondaryMarket/>
+        <frequentlyPurchasedWith/>
+        <crossSell/>
+        <salesRankShortTerm/>
+        <salesRankMediumTerm/>
+        <salesRankLongTerm/>
+        <bestSellingRank/>
+        <url>http://www.bestbuy.com/site/Nikon+1+J1+10.1MP+Silver+Camera+Kit%2C+Bag%2C+8GB+Memory+Card+%26+Extra+10mm+Lens/9999184200050033.p?id=pcmprd183700050033&amp;skuId=9999184200050033&amp;cmp=RMX</url>
+        <spin360Url/>
+        <mobileUrl>http://m.bestbuy.com/r/0/9999184200050033/</mobileUrl>
+        <affiliateUrl/>
+        <addToCartUrl>http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&amp;type=category&amp;cmp=RMX&amp;qvsids=9999184200050033</addToCartUrl>
+        <affiliateAddToCartUrl/>
+        <cjAffiliateUrl/>
+        <cjAffiliateAddToCartUrl/>
+        <upc/>
+        <categoryPath>
+            <category>
+                <id>cat00000</id>
+                <name>Best Buy</name>
+            </category>
+            <category>
+                <id>abcat0400000</id>
+                <name>Cameras &amp; Camcorders</name>
+            </category>
+            <category>
+                <id>abcat0401000</id>
+                <name>Digital Cameras</name>
+            </category>
+            <category>
+                <id>pcmcat214000050005</id>
+                <name>Compact System Cameras</name>
+            </category>
+            <category>
+                <id>pcmcat234200050001</id>
+                <name>All Compact System Cameras</name>
+            </category>
+        </categoryPath>
+        <lists/>
+        <customerReviewCount/>
+        <customerReviewAverage/>
+        <format/>
+        <freeShipping>false</freeShipping>
+        <inStoreAvailability>true</inStoreAvailability>
+        <inStoreAvailabilityText>Store Pickup:</inStoreAvailabilityText>
+        <inStoreAvailabilityTextHtml>&lt;b&gt;Store Pickup:&lt;/b&gt;</inStoreAvailabilityTextHtml>
+        <inStoreAvailabilityUpdateDate>2012-07-03T05:52:37</inStoreAvailabilityUpdateDate>
+        <itemUpdateDate>2012-07-26T11:45:56</itemUpdateDate>
+        <onlineAvailability>true</onlineAvailability>
+        <onlineAvailabilityText>Shipping: Usually leaves our warehouse in 1 business day</onlineAvailabilityText>
+        <onlineAvailabilityTextHtml>&lt;b&gt;Shipping:&lt;/b&gt; Usually leaves our warehouse in 1 business day</onlineAvailabilityTextHtml>
+        <onlineAvailabilityUpdateDate>2012-07-03T05:52:37</onlineAvailabilityUpdateDate>
+        <releaseDate/>
+        <shippingCost/>
+        <shipping/>
+        <specialOrder>false</specialOrder>
+        <shortDescription/>
+        <shortDescriptionHtml/>
+        <class/>
+        <classId/>
+        <subclass/>
+        <subclassId/>
+        <department/>
+        <departmentId/>
+        <bestBuyItemId/>
+        <image>http://images.bestbuy.com/BestBuy_US/images/products/9999/pcmprd179200050032_sc.jpg</image>
+        <largeFrontImage/>
+        <mediumImage>http://images.bestbuy.com/BestBuy_US/images/products/9999/pcmprd179200050032fp.gif</mediumImage>
+        <thumbnailImage>http://images.bestbuy.com/BestBuy_US/images/products/9999/pcmprd179200050032_s.gif</thumbnailImage>
+        <largeImage/>
+        <alternateViewsImage/>
+        <angleImage/>
+        <backViewImage/>
+        <energyGuideImage/>
+        <leftViewImage/>
+        <accessoriesImage/>
+        <remoteControlImage/>
+        <rightViewImage/>
+        <topViewImage/>
+        <members>
+            <sku>3639186</sku>
+            <sku>3832039</sku>
+            <sku>7037253</sku>
+            <sku>8554806</sku>
+        </members>
+        <bundledIn/>
+        <longDescription>Save $271 when you buy this discounted package. Package includes camera with included NIKKOR 10&#x2013;30mm lens, all-weather bag, 8GB SDHC memory card and extra NIKKOR 10mm f/2.8 lens.</longDescription>
+        <offers>
+            <offer>
+                <id>promo175700050000</id>
+                <heading/>
+                <text>Free 8x8 Photo Book: Find Out How</text>
+                <url>http://www.bestbuy.com/site/null/Free 8x8 Photo Book with Qualifying Camera or Camcorder/pcmcat224200050001.c?id=pcmcat224200050001</url>
+                <imageUrl/>
+                <type>special_offer</type>
+                <startDate/>
+                <endDate/>
+            </offer>
+            <offer>
+                <id>promo216400050006</id>
+                <heading/>
+                <text>Free Shipping</text>
+                <url/>
+                <imageUrl/>
+                <type>special_offer</type>
+                <startDate/>
+                <endDate/>
+            </offer>
+        </offers>
+        <marketplace>false</marketplace>
+        <listingId/>
+        <sellerId/>
+    </product>
+    <product>
+        <sku>1</sku>
+        <productId>0</productId>
+        <name>Nikon 1 J1 10.1MP Silver Camera Kit, Bag, 8GB Memory Card &amp; Extra 10mm Lens</name>
+        <source>bestbuy</source>
+        <type>Bundle</type>
+        <startDate>2012-07-01</startDate>
+        <new>true</new>
+        <active>true</active>
+        <activeUpdateDate>2012-07-26T11:30:59</activeUpdateDate>
+        <regularPrice>679.96</regularPrice>
+        <salePrice>679.96</salePrice>
+        <onSale>false</onSale>
+        <planPrice/>
+        <priceWithPlan/>
+        <advertisedPriceRestriction>false</advertisedPriceRestriction>
+        <minimumDisplayPrice/>
+        <restrictedSalePrice>679.96</restrictedSalePrice>
+        <icrType/>
+        <icrStartDate/>
+        <icrEndDate/>
+        <priceUpdateDate>2012-07-26T11:05:17</priceUpdateDate>
+        <digital>false</digital>
+        <preowned>false</preowned>
+        <outletCenter/>
+        <secondaryMarket/>
+        <frequentlyPurchasedWith/>
+        <crossSell/>
+        <salesRankShortTerm/>
+        <salesRankMediumTerm/>
+        <salesRankLongTerm/>
+        <bestSellingRank/>
+        <url>http://www.bestbuy.com/site/Nikon+1+J1+10.1MP+Silver+Camera+Kit%2C+Bag%2C+8GB+Memory+Card+%26+Extra+10mm+Lens/9999184200050033.p?id=pcmprd183700050033&amp;skuId=9999184200050033&amp;cmp=RMX</url>
+        <spin360Url/>
+        <mobileUrl>http://m.bestbuy.com/r/0/9999184200050033/</mobileUrl>
+        <affiliateUrl/>
+        <addToCartUrl>http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&amp;type=category&amp;cmp=RMX&amp;qvsids=9999184200050033</addToCartUrl>
+        <affiliateAddToCartUrl/>
+        <cjAffiliateUrl/>
+        <cjAffiliateAddToCartUrl/>
+        <upc/>
+        <categoryPath>
+            <category>
+                <id>cat00000</id>
+                <name>Best Buy</name>
+            </category>
+            <category>
+                <id>abcat0400000</id>
+                <name>Cameras &amp; Camcorders</name>
+            </category>
+            <category>
+                <id>abcat0401000</id>
+                <name>Digital Cameras</name>
+            </category>
+            <category>
+                <id>pcmcat214000050005</id>
+                <name>Compact System Cameras</name>
+            </category>
+            <category>
+                <id>pcmcat234200050001</id>
+                <name>All Compact System Cameras</name>
+            </category>
+        </categoryPath>
+        <lists/>
+        <customerReviewCount/>
+        <customerReviewAverage/>
+        <format/>
+        <freeShipping>false</freeShipping>
+        <inStoreAvailability>true</inStoreAvailability>
+        <inStoreAvailabilityText>Store Pickup:</inStoreAvailabilityText>
+        <inStoreAvailabilityTextHtml>&lt;b&gt;Store Pickup:&lt;/b&gt;</inStoreAvailabilityTextHtml>
+        <inStoreAvailabilityUpdateDate>2012-07-03T05:52:37</inStoreAvailabilityUpdateDate>
+        <itemUpdateDate>2012-07-26T11:45:56</itemUpdateDate>
+        <onlineAvailability>true</onlineAvailability>
+        <onlineAvailabilityText>Shipping: Usually leaves our warehouse in 1 business day</onlineAvailabilityText>
+        <onlineAvailabilityTextHtml>&lt;b&gt;Shipping:&lt;/b&gt; Usually leaves our warehouse in 1 business day</onlineAvailabilityTextHtml>
+        <onlineAvailabilityUpdateDate>2012-07-03T05:52:37</onlineAvailabilityUpdateDate>
+        <releaseDate/>
+        <shippingCost/>
+        <shipping/>
+        <specialOrder>false</specialOrder>
+        <shortDescription/>
+        <shortDescriptionHtml/>
+        <class/>
+        <classId/>
+        <subclass/>
+        <subclassId/>
+        <department/>
+        <departmentId/>
+        <bestBuyItemId/>
+        <image>http://images.bestbuy.com/BestBuy_US/images/products/9999/pcmprd179200050032_sc.jpg</image>
+        <largeFrontImage/>
+        <mediumImage>http://images.bestbuy.com/BestBuy_US/images/products/9999/pcmprd179200050032fp.gif</mediumImage>
+        <thumbnailImage>http://images.bestbuy.com/BestBuy_US/images/products/9999/pcmprd179200050032_s.gif</thumbnailImage>
+        <largeImage/>
+        <alternateViewsImage/>
+        <angleImage/>
+        <backViewImage/>
+        <energyGuideImage/>
+        <leftViewImage/>
+        <accessoriesImage/>
+        <remoteControlImage/>
+        <rightViewImage/>
+        <topViewImage/>
+        <members>
+            <sku>3639186</sku>
+            <sku>3832039</sku>
+            <sku>7037253</sku>
+            <sku>8554806</sku>
+        </members>
+        <bundledIn/>
+        <longDescription>Save $271 when you buy this discounted package. Package includes camera with included NIKKOR 10&#x2013;30mm lens, all-weather bag, 8GB SDHC memory card and extra NIKKOR 10mm f/2.8 lens.</longDescription>
+        <offers>
+            <offer>
+                <id>promo175700050000</id>
+                <heading/>
+                <text>Free 8x8 Photo Book: Find Out How</text>
+                <url>http://www.bestbuy.com/site/null/Free 8x8 Photo Book with Qualifying Camera or Camcorder/pcmcat224200050001.c?id=pcmcat224200050001</url>
+                <imageUrl/>
+                <type>special_offer</type>
+                <startDate/>
+                <endDate/>
+            </offer>
+            <offer>
+                <id>promo216400050006</id>
+                <heading/>
+                <text>Free Shipping</text>
+                <url/>
+                <imageUrl/>
+                <type>special_offer</type>
+                <startDate/>
+                <endDate/>
+            </offer>
+        </offers>
+        <marketplace>false</marketplace>
+        <listingId/>
+        <sellerId/>
+    </product>
+</products>
