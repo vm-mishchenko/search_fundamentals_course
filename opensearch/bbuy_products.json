@@ -1,5 +1,192 @@
 {
   "settings": {
     "index.refresh_interval": "5s"
+  },
+  "mappings": {
+    "properties": {
+      "sku": {
+        "type": "text",
+        "analyzer": "standard",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 100
+          }
+        }
+      },
+      "productId": {
+        "type": "keyword"
+      },
+      "name": {
+        "type": "text",
+        "analyzer": "standard",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 2000
+          }
+        }
+      },
+      "type": {
+        "type": "keyword"
+      },
+      "regularPrice": {
+        "type": "float"
+      },
+      "salePrice": {
+        "type": "float"
+      },
+      "onSale": {
+        "type": "boolean"
+      },
+      "salesRankShortTerm": {
+        "type": "long"
+      },
+      "salesRankMediumTerm": {
+        "type": "long"
+      },
+      "bestSellingRank": {
+        "type": "long"
+      },
+      "url": {
+        "type": "text",
+        "analyzer": "standard",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 2000
+          }
+        }
+      },
+      "categoryPath": {
+        "type": "text",
+        "analyzer": "standard",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 2048
+          }
+        }
+      },
+      "categoryPathIds": {
+        "type": "keyword"
+      },
+      "categoryLeaf": {
+        "type": "keyword"
+      },
+      "categoryPathCount": {
+        "type": "integer"
+      },
+      "customerReviewCount": {
+        "type": "integer"
+      },
+      "customerReviewAverage": {
+        "type": "integer"
+      },
+      "inStoreAvailability": {
+        "type": "boolean"
+      },
+      "onlineAvailability": {
+        "type": "boolean"
+      },
+      "releaseDate": {
+        "type": "date"
+      },
+      "shortDescription": {
+        "type": "text",
+        "analyzer": "standard",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 2048
+          }
+        }
+      },
+      "class": {
+        "type": "text",
+        "analyzer": "standard",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 500
+          }
+        }
+      },
+      "classId": {
+        "type": "keyword"
+      },
+      "department": {
+        "type": "text",
+        "analyzer": "standard",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 1024
+          }
+        }
+      },
+      "departmentId": {
+        "type": "integer"
+      },
+      "bestBuyItemId": {
+        "type": "keyword"
+      },
+      "description": {
+        "type": "text",
+        "analyzer": "standard",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 2048
+          }
+        }
+      },
+      "manufacturer": {
+        "type": "text",
+        "analyzer": "standard",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 1024
+          }
+        }
+      },
+      "modelNumber": {
+        "type": "keyword"
+      },
+      "image": {
+        "type": "keyword"
+      },
+      "longDescription": {
+        "type": "text",
+        "analyzer": "standard",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 2048
+          }
+        }
+      },
+      "longDescriptionHtml": {
+        "type": "text",
+        "analyzer": "standard",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 2048
+          }
+        }
+      },
+      "features": {
+        "type": "text",
+        "analyzer": "standard",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 2048
+          }
+        }
+      }
+    }
   }
 }

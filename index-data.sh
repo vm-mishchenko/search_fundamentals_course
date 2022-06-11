@@ -7,7 +7,7 @@ usage()
 
 PRODUCTS_JSON_FILE="/workspace/search_fundamentals_course/opensearch/bbuy_products.json"
 QUERIES_JSON_FILE="/workspace/search_fundamentals_course/opensearch/bbuy_queries.json"
-DATASETS_DIR="/workspace/datasets/"
+DATASETS_DIR="/workspace/datasets"
 PYTHON_LOC="/workspace/search_fundamentals_course/week1"
 
 LOGS_DIR="/workspace/logs"
@@ -40,7 +40,7 @@ cd $PYTHON_LOC
 echo ""
 if [ -f index_products.py ]; then
   echo "Indexing product data in $DATASETS_DIR/product_data/products and writing logs to $LOGS_DIR/index_products.log"
-  nohup python index_products.py -s "$DATASETS_DIR/product_data/products" > "$LOGS_DIR/index_products.log" &
+  nohup python index_products.py -c "true" -s "$DATASETS_DIR/product_data/products" > "$LOGS_DIR/index_products.log" &
   if [ $? -ne 0 ] ; then
     echo "Failed to index products"
     exit 2

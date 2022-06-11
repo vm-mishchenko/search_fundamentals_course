@@ -1,6 +1,6 @@
 <products>
     <product>
-        <sku>1</sku>
+        <sku>9999184200050033</sku>
         <productId>0</productId>
         <name>Nikon 1 J1 10.1MP Silver Camera Kit, Bag, 8GB Memory Card &amp; Extra 10mm Lens</name>
         <source>bestbuy</source>
@@ -138,27 +138,27 @@
         <sellerId/>
     </product>
     <product>
-        <sku>1</sku>
+        <sku>9999184200050034</sku>
         <productId>0</productId>
-        <name>Nikon 1 J1 10.1MP Silver Camera Kit, Bag, 8GB Memory Card &amp; Extra 10mm Lens</name>
+        <name>Nikon 1 V1 10.1MP Black Camera Kit, Bag, 8GB Memory Card &amp; Extra 30-110mm Lens</name>
         <source>bestbuy</source>
         <type>Bundle</type>
         <startDate>2012-07-01</startDate>
         <new>true</new>
         <active>true</active>
-        <activeUpdateDate>2012-07-26T11:30:59</activeUpdateDate>
-        <regularPrice>679.96</regularPrice>
-        <salePrice>679.96</salePrice>
+        <activeUpdateDate>2012-07-27T14:29:17</activeUpdateDate>
+        <regularPrice>929.96</regularPrice>
+        <salePrice>929.96</salePrice>
         <onSale>false</onSale>
         <planPrice/>
         <priceWithPlan/>
         <advertisedPriceRestriction>false</advertisedPriceRestriction>
         <minimumDisplayPrice/>
-        <restrictedSalePrice>679.96</restrictedSalePrice>
+        <restrictedSalePrice>929.96</restrictedSalePrice>
         <icrType/>
         <icrStartDate/>
         <icrEndDate/>
-        <priceUpdateDate>2012-07-26T11:05:17</priceUpdateDate>
+        <priceUpdateDate>2012-07-26T16:35:16</priceUpdateDate>
         <digital>false</digital>
         <preowned>false</preowned>
         <outletCenter/>
@@ -169,11 +169,11 @@
         <salesRankMediumTerm/>
         <salesRankLongTerm/>
         <bestSellingRank/>
-        <url>http://www.bestbuy.com/site/Nikon+1+J1+10.1MP+Silver+Camera+Kit%2C+Bag%2C+8GB+Memory+Card+%26+Extra+10mm+Lens/9999184200050033.p?id=pcmprd183700050033&amp;skuId=9999184200050033&amp;cmp=RMX</url>
+        <url>http://www.bestbuy.com/site/Nikon+1+V1+10.1MP+Black+Camera+Kit%2C+Bag%2C+8GB+Memory+Card+%26+Extra+30-110mm+Lens/9999184200050034.p?id=pcmprd183700050034&amp;skuId=9999184200050034&amp;cmp=RMX</url>
         <spin360Url/>
-        <mobileUrl>http://m.bestbuy.com/r/0/9999184200050033/</mobileUrl>
+        <mobileUrl>http://m.bestbuy.com/r/0/9999184200050034/</mobileUrl>
         <affiliateUrl/>
-        <addToCartUrl>http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&amp;type=category&amp;cmp=RMX&amp;qvsids=9999184200050033</addToCartUrl>
+        <addToCartUrl>http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&amp;type=category&amp;cmp=RMX&amp;qvsids=9999184200050034</addToCartUrl>
         <affiliateAddToCartUrl/>
         <cjAffiliateUrl/>
         <cjAffiliateAddToCartUrl/>
@@ -205,15 +205,15 @@
         <customerReviewAverage/>
         <format/>
         <freeShipping>false</freeShipping>
-        <inStoreAvailability>true</inStoreAvailability>
-        <inStoreAvailabilityText>Store Pickup:</inStoreAvailabilityText>
-        <inStoreAvailabilityTextHtml>&lt;b&gt;Store Pickup:&lt;/b&gt;</inStoreAvailabilityTextHtml>
-        <inStoreAvailabilityUpdateDate>2012-07-03T05:52:37</inStoreAvailabilityUpdateDate>
-        <itemUpdateDate>2012-07-26T11:45:56</itemUpdateDate>
-        <onlineAvailability>true</onlineAvailability>
-        <onlineAvailabilityText>Shipping: Usually leaves our warehouse in 1 business day</onlineAvailabilityText>
-        <onlineAvailabilityTextHtml>&lt;b&gt;Shipping:&lt;/b&gt; Usually leaves our warehouse in 1 business day</onlineAvailabilityTextHtml>
-        <onlineAvailabilityUpdateDate>2012-07-03T05:52:37</onlineAvailabilityUpdateDate>
+        <inStoreAvailability>false</inStoreAvailability>
+        <inStoreAvailabilityText>Store Pickup: Not Available</inStoreAvailabilityText>
+        <inStoreAvailabilityTextHtml>&lt;b&gt;Store Pickup:&lt;/b&gt; Not Available</inStoreAvailabilityTextHtml>
+        <inStoreAvailabilityUpdateDate>2012-07-27T14:29:17</inStoreAvailabilityUpdateDate>
+        <itemUpdateDate>2012-07-27T14:29:17</itemUpdateDate>
+        <onlineAvailability>false</onlineAvailability>
+        <onlineAvailabilityText>Shipping: Not available</onlineAvailabilityText>
+        <onlineAvailabilityTextHtml>&lt;b&gt;Shipping:&lt;/b&gt; Not available</onlineAvailabilityTextHtml>
+        <onlineAvailabilityUpdateDate>2012-07-27T14:29:17</onlineAvailabilityUpdateDate>
         <releaseDate/>
         <shippingCost/>
         <shipping/>
@@ -227,10 +227,10 @@
         <department/>
         <departmentId/>
         <bestBuyItemId/>
-        <image>http://images.bestbuy.com/BestBuy_US/images/products/9999/pcmprd179200050032_sc.jpg</image>
+        <image>http://images.bestbuy.com/BestBuy_US/images/products/9999/pcmprd179200050034_sc.jpg</image>
         <largeFrontImage/>
-        <mediumImage>http://images.bestbuy.com/BestBuy_US/images/products/9999/pcmprd179200050032fp.gif</mediumImage>
-        <thumbnailImage>http://images.bestbuy.com/BestBuy_US/images/products/9999/pcmprd179200050032_s.gif</thumbnailImage>
+        <mediumImage>http://images.bestbuy.com/BestBuy_US/images/products/9999/pcmprd179200050034fp.gif</mediumImage>
+        <thumbnailImage>http://images.bestbuy.com/BestBuy_US/images/products/9999/pcmprd179200050034_s.gif</thumbnailImage>
         <largeImage/>
         <alternateViewsImage/>
         <angleImage/>
@@ -242,13 +242,13 @@
         <rightViewImage/>
         <topViewImage/>
         <members>
-            <sku>3639186</sku>
-            <sku>3832039</sku>
+            <sku>3838219</sku>
+            <sku>3832048</sku>
             <sku>7037253</sku>
             <sku>8554806</sku>
         </members>
         <bundledIn/>
-        <longDescription>Save $271 when you buy this discounted package. Package includes camera with included NIKKOR 10&#x2013;30mm lens, all-weather bag, 8GB SDHC memory card and extra NIKKOR 10mm f/2.8 lens.</longDescription>
+        <longDescription>Save $271 when you buy this discounted package. Package includes camera with included NIKKOR 10&#x2013;30mm lens, all-weather bag, 8GB SDHC memory card and extra NIKKOR 30&#x2013;110mm telephoto zoom lens.</longDescription>
         <offers>
             <offer>
                 <id>promo175700050000</id>
