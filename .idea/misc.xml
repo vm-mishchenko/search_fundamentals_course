@@ -10,28 +10,8 @@
     <option name="openedFilesInfos">
       <list>
         <OpenedFileInfo>
-          <option name="caretOffset" value="3010" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/week1/index_products.py" />
-        </OpenedFileInfo>
-        <OpenedFileInfo>
-          <option name="caretOffset" value="8237" />
-          <option name="fileUrl" value="file://$USER_HOME$/.pyenv/versions/search_fundamentals/lib/python3.9/site-packages/tqdm/std.py" />
-        </OpenedFileInfo>
-        <OpenedFileInfo>
-          <option name="caretOffset" value="70" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/commands.md" />
-        </OpenedFileInfo>
-        <OpenedFileInfo>
-          <option name="caretOffset" value="342" />
-          <option name="fileUrl" value="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.txt" />
-        </OpenedFileInfo>
-        <OpenedFileInfo>
-          <option name="caretOffset" value="3623" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/week2/index_products.py" />
-        </OpenedFileInfo>
-        <OpenedFileInfo>
-          <option name="caretOffset" value="0" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/index-data.sh" />
+          <option name="caretOffset" value="267" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/week1/opensearch.py" />
         </OpenedFileInfo>
       </list>
     </option>

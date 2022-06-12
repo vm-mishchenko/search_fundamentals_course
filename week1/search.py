@@ -58,7 +58,7 @@ def process_filters(filters_input):
 # Our main query route.  Accepts POST (via the Search box) and GETs via the clicks on aggregations/facets
 @bp.route('/query', methods=['GET', 'POST'])
 def query():
-    opensearch = get_opensearch() # Load up our OpenSearch client from the opensearch.py file.
+    client = get_opensearch() # Load up our OpenSearch client from the opensearch.py file.
     # Put in your code to query opensearch.  Set error as appropriate.
     error = None
     user_query = None
@@ -94,10 +94,11 @@ def query():
     print("query obj: {}".format(query_obj))
 
     #### Step 4.b.ii
-    response = None   # TODO: Replace me with an appropriate call to OpenSearch
-    # Postprocess results here if you so desire
+    response = client.search(
+        body = query_obj,
+        index = 'bbuy_products'
+    )
 
-    #print(response)
     if error is None:
         return render_template("search_results.jinja2", query=user_query, search_response=response,
                                display_filters=display_filters, applied_filters=applied_filters,
@@ -111,11 +112,66 @@ def create_query(user_query, filters, sort="_score", sortDir="desc"):
     query_obj = {
         'size': 10,
         "query": {
-            "match_all": {} # Replace me with a query that both searches and filters
+            "bool": {
+              "must": [
+                  {
+                      # https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-dsl-query-string-query.html#query-string-multi-field
+                      "query_string": {
+                          "query": user_query,
+                          "fields": [ "name", "shortDescription", "longDescription" ],
+                          "phrase_slop": 3
+                      }
+                  }
+              ],
+              # https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-filter-context.html#query-filter-context-ex
+              "filter": filters
+            },
         },
+        # https://www.elastic.co/guide/en/elasticsearch/reference/7.10/sort-search-results.html
+        "sort": [
+            {
+                sort: {
+                    "order": sortDir
+                }
+            },
+        ],
         "aggs": {
             #### Step 4.b.i: create the appropriate query and aggregations here
+            "regularPrice": {
+                # https://opensearch.org/docs/latest/opensearch/bucket-agg/#range-date_range-ip_range
+                "range": {
+                    "field": "regularPrice",
+                    "ranges": [
+                        { "to": 200.0 },
+                        { "from": 200.0, "to": 1000.0 },
+                        { "from": 1000.0 }
+                    ]
+                }
+            },
+            "department": {
+                # https://opensearch.org/docs/latest/opensearch/bucket-agg/#terms
+                "terms": {
+                    "field": "department.keyword",
+                    "size": 5,
+                    "min_doc_count": 0
+                }
+            },
+            "missing_images": {
+                # https://www.elastic.co/guide/en/elasticsearch/reference/7.10/search-aggregations-bucket-missing-aggregation.html
+                "missing": {
+                    "field": "image"
+                }
+            },
 
+        },
+        # https://www.elastic.co/guide/en/elasticsearch/reference/7.10/highlighting.html
+        "highlight": {
+            "fields": {
+                "name": {},
+                "shortDescription": {},
+                "longDescription": {}
+            }
         }
     }
+
     return query_obj

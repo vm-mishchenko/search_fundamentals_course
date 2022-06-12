@@ -36,10 +36,16 @@ echo "Delete 'bbuy_products' index"
 curl -k -X DELETE -u admin:admin  "https://localhost:9200/bbuy_products" -H 'Content-Type: application/json'
 
 echo
+echo "Delete 'bbuy_queries' index"
+curl -k -X DELETE -u admin:admin  "https://localhost:9200/bbuy_queries" -H 'Content-Type: application/json'
+
+echo
 echo "Create 'bbuy_products' index"
 curl -k -X PUT -u admin:admin  "https://localhost:9200/bbuy_products" -H 'Content-Type: application/json' -d "@$PRODUCTS_JSON_FILE"
-# echo " Query file: $QUERIES_JSON_FILE"
-# curl -k -X PUT -u admin:admin  "https://localhost:9200/bbuy_queries" -H 'Content-Type: application/json' -d "@$QUERIES_JSON_FILE"
+
+echo
+echo "Create 'bbuy_queries' index"
+curl -k -X PUT -u admin:admin  "https://localhost:9200/bbuy_queries" -H 'Content-Type: application/json' -d "@$QUERIES_JSON_FILE"
 
 cd $PYTHON_LOC
 echo ""
@@ -50,11 +56,11 @@ if [ -f index_products.py ]; then
     echo "Failed to index products"
     exit 2
   fi
-fi 
-# if [ -f index_queries.py ]; then
-#   echo "Indexing queries data and writing logs to $LOGS_DIR/index_queries.log"
-#   nohup python index_queries.py -s "$DATASETS_DIR/train.csv" > "$LOGS_DIR/index_queries.log" &
-#   if [ $? -ne 0 ] ; then
-#    exit 2
-#   fi
-# fi
+fi
+if [ -f index_queries.py ]; then
+ echo "Indexing queries data and writing logs to $LOGS_DIR/index_queries.log"
+ nohup python index_queries.py -s "$DATASETS_DIR/train.csv" > "$LOGS_DIR/index_queries.log" &
+ if [ $? -ne 0 ] ; then
+  exit 2
+ fi
+fi

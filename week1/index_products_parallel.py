@@ -8,6 +8,8 @@ from opensearchpy import OpenSearch
 from opensearchpy.helpers import bulk
 import logging
 import time
+from concurrent.futures import ProcessPoolExecutor
+from tqdm import tqdm
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -77,10 +79,9 @@ def index_exists(client, index_name):
     return client.indices.exists(index_name)
 
 def delete_index(client, index_name):
-    response = client.indices.exists(index_name)
-
     client.indices.delete(index=index_name)
     logger.info(f'Index "{index_name}" has been deleted')
+
 
 def create_index(client, index_name):
     index_body = {
@@ -167,11 +168,45 @@ def print_number_of_docs_in_os(client, index_name):
     response = client.cat.count(index_name, params={"format": "json"})
     logger.info(f'Number of docs in OS: {response[0]["count"]}')
 
+def index_file(file, index_name):
+    client = get_opensearch()
+
+    docs = []
+    tree = etree.parse(file)
+    root = tree.getroot()
+    children = root.findall("./product")
+    for child in children:
+        doc = {}
+        for idx in range(0, len(mappings), 2):
+            xpath_expr = mappings[idx]
+            key = mappings[idx + 1]
+            # more about xpath: https://lxml.de/xpathxslt.html#the-xpath-method
+            value = child.xpath(xpath_expr)
+            doc[key] = value
+        if not 'productId' in doc or len(doc['productId']) == 0:
+            continue
+
+        #### Step 2.b: Create a valid OpenSearch Doc and bulk index 2000 docs at a time
+        the_doc = doc.copy()
+        the_doc['id'] = the_doc['sku'][0]
+        the_doc['_index'] = index_name
+
+        assert the_doc['id'] is not None, "document 'id' is required"
+
+        docs.append(the_doc)
+
+    logger.info(f'Index in bulk {len(docs)} docs.')
+    index_docs(client, docs)
+
+    return file
+
 @click.command()
 @click.option('--source_dir', '-s', default="/workspace/datasets/product_data/products", help='XML files source directsory')
 @click.option('--index_name', '-i', default="bbuy_products", help="The name of the index to write to")
 @click.option('--called_from_index_data', '-c', default="false", help="The name of the index to write to")
-def main(source_dir: str, index_name: str, called_from_index_data: str):
+@click.option('--workers', '-w', default=8, help="The name of the index to write to")
+def main(source_dir: str, index_name: str, called_from_index_data: str, workers: int):
+    pool = ProcessPoolExecutor(max_workers=workers)
     client = get_opensearch()
 
     # To test on a smaller set of documents, change this glob to be more restrictive than *.xml
@@ -192,49 +227,16 @@ def main(source_dir: str, index_name: str, called_from_index_data: str):
             raise Exception('Double check active_globe')
 
     files = glob.glob(active_glob)
-    docs_indexed = 0
-    tic = time.perf_counter()
-    docs = []
-    batch_doc_count = 5000
+    futures = []
 
-    for index, file in enumerate(files):
-        logger.info(f'Processing file {index} out of {len(files)} : {file}')
-        tree = etree.parse(file)
-        root = tree.getroot()
-        children = root.findall("./product")
-        for child in children:
-            doc = {}
-            for idx in range(0, len(mappings), 2):
-                xpath_expr = mappings[idx]
-                key = mappings[idx + 1]
-                # more about xpath: https://lxml.de/xpathxslt.html#the-xpath-method
-                value = child.xpath(xpath_expr)
-                doc[key] = value
-            if not 'productId' in doc or len(doc['productId']) == 0:
-                continue
+    # Files are independent, worth processing them in parallel for speed-up (~5x)
+    for file_index, file in enumerate(files):
+        logger.info(f'Processing file {file_index} out of {len(files)} : {file}')
+        future = pool.submit(index_file, file, index_name)
+        futures.append(future)
 
-            #### Step 2.b: Create a valid OpenSearch Doc and bulk index 5000 docs at a time
-            the_doc = doc.copy()
-            the_doc['id'] = the_doc['sku'][0]
-            the_doc['_index'] = index_name
-
-            assert the_doc['id'] is not None, "document 'id' is required"
-
-            docs.append(the_doc)
-
-            if len(docs) == batch_doc_count:
-                logger.info(f'Index in bulk {len(docs)} docs.')
-                index_docs(client, docs)
-                docs_indexed += batch_doc_count
-                docs = []
-
-    if len(docs) > 0:
-        logger.info(f'Final Index in bulk {len(docs)} docs.')
-        index_docs(client, docs)
-        docs_indexed += len(docs)
-
-    toc = time.perf_counter()
-    logger.info(f'Done. Total docs: {docs_indexed}.  Total time: {((toc - tic) / 60):0.3f} mins.')
+    for future in tqdm(futures):
+        logger.info(f"Indexed: {future.result()}")
 
 # Helpers not related to Open Search
 def print_value_for_field(doc, field_name):

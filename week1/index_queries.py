@@ -12,7 +12,6 @@ logger.setLevel(logging.INFO)
 logging.basicConfig(format='%(levelname)s:%(message)s')
 
 def get_opensearch():
-
     host = 'localhost'
     port = 9200
     auth = ('admin', 'admin')
@@ -26,7 +25,6 @@ def get_opensearch():
         verify_certs=False,
         ssl_assert_hostname=False,
         ssl_show_warn=False,
-        #ca_certs=ca_certs_path
     )
     return client
 
