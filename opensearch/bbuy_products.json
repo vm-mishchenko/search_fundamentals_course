@@ -45,6 +45,9 @@
       "salesRankMediumTerm": {
         "type": "long"
       },
+      "salesRankLongTerm": {
+        "type": "long"
+      },
       "bestSellingRank": {
         "type": "long"
       },

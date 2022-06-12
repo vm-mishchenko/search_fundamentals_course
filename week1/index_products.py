@@ -77,8 +77,6 @@ def index_exists(client, index_name):
     return client.indices.exists(index_name)
 
 def delete_index(client, index_name):
-    response = client.indices.exists(index_name)
-
     client.indices.delete(index=index_name)
     logger.info(f'Index "{index_name}" has been deleted')
 
@@ -105,6 +103,7 @@ def create_index(client, index_name):
                 "onSale": {"type": "boolean"},
                 "salesRankShortTerm": {"type": "long"},
                 "salesRankMediumTerm": {"type": "long"},
+                "salesRankLongTerm": {"type": "long"},
                 "bestSellingRank": {"type": "long"},
                 # https://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url-in-different-browsers
                 "url": {"type": "text", "analyzer": "standard",
@@ -215,10 +214,10 @@ def main(source_dir: str, index_name: str, called_from_index_data: str):
 
             #### Step 2.b: Create a valid OpenSearch Doc and bulk index 5000 docs at a time
             the_doc = doc.copy()
-            the_doc['id'] = the_doc['sku'][0]
+            the_doc['_id'] = the_doc['sku'][0]
             the_doc['_index'] = index_name
 
-            assert the_doc['id'] is not None, "document 'id' is required"
+            assert the_doc['_id'] is not None, "document '_id' is required"
 
             docs.append(the_doc)
 

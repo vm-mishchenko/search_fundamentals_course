@@ -10,8 +10,27 @@
     <option name="openedFilesInfos">
       <list>
         <OpenedFileInfo>
-          <option name="caretOffset" value="267" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/week1/opensearch.py" />
+          <option name="caretOffset" value="2960" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/week1/index_products.py" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="2458" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/opensearch/bbuy_products.json" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="378" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/opensearch/debugging_ranking.dev" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="212" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/commands.md" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="fileUrl" value="mock:///Diff" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="5038" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/week1/search.py" />
         </OpenedFileInfo>
       </list>
     </option>

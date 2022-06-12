@@ -112,20 +112,56 @@ def create_query(user_query, filters, sort="_score", sortDir="desc"):
     query_obj = {
         'size': 10,
         "query": {
-            "bool": {
-              "must": [
-                  {
-                      # https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-dsl-query-string-query.html#query-string-multi-field
-                      "query_string": {
-                          "query": user_query,
-                          "fields": [ "name", "shortDescription", "longDescription" ],
-                          "phrase_slop": 3
-                      }
-                  }
-              ],
-              # https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-filter-context.html#query-filter-context-ex
-              "filter": filters
-            },
+            # https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-function-score-query.html#function-field-value-factor
+            "function_score": {
+                "query": {
+                    "bool": {
+                        "must": [
+                            {
+                                # https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-dsl-query-string-query.html#query-string-multi-field
+                                "query_string": {
+                                    "query": user_query,
+                                    "fields": [
+                                        "name^1000",
+                                        "shortDescription^50",
+                                        "longDescription^10",
+                                        "department"
+                                    ],
+                                    "phrase_slop": 3
+                                }
+                            }
+                        ],
+                        # https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-filter-context.html#query-filter-context-ex
+                        "filter": filters
+                    },
+                },
+                "boost_mode": "multiply",
+                "score_mode": "avg",
+                "functions": [
+                    {
+                        # https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-function-score-query.html#function-field-value-factor
+                        "field_value_factor": {
+                            "field": "salesRankLongTerm",
+                            "modifier": "reciprocal",
+                            "missing": 100000000
+                        }
+                    },
+                    {
+                        "field_value_factor": {
+                            "field": "salesRankMediumTerm",
+                            "modifier": "reciprocal",
+                            "missing": 100000000
+                        }
+                    },
+                    {
+                        "field_value_factor": {
+                            "field": "salesRankShortTerm",
+                            "modifier": "reciprocal",
+                            "missing": 100000000
+                        }
+                    }
+                ]
+            }
         },
         # https://www.elastic.co/guide/en/elasticsearch/reference/7.10/sort-search-results.html
         "sort": [
