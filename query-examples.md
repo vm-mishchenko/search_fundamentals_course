@@ -14,13 +14,47 @@ HEAD /bbuy_products
 # delete index
 DELETE /bbuy_products
 
-
-# sku
+# query tunning
 GET bbuy_products/_search
 {
   "query": {
-    "match": {
-      "name": "films"
+    "function_score": {
+      "query": {
+        "query_string": {
+          "query": "\"ipad 2\"",
+          "fields": [
+            "name^1000",
+            "shortDescription^50",
+            "longDescription^10",
+            "department"
+          ]
+        }
+      },
+      "boost_mode": "replace",
+      "score_mode": "avg",
+      "functions": [
+        {
+          "field_value_factor": {
+            "field": "salesRankLongTerm",
+            "modifier": "reciprocal",
+            "missing": 100000000
+          }
+        },
+        {
+          "field_value_factor": {
+            "field": "salesRankMediumTerm",
+            "modifier": "reciprocal",
+            "missing": 100000000
+          }
+        },
+        {
+          "field_value_factor": {
+            "field": "salesRankShortTerm",
+            "modifier": "reciprocal",
+            "missing": 100000000
+          }
+        }
+      ]
     }
   }
 }
