@@ -97,9 +97,9 @@ POST search_fun_test/_search
               {
                   "exp": {
                     "price":{
-                      "origin": "0",
+                    "origin": "0",
                     "scale": "4",
-                      "decay": "0.3"
+                    "decay": "0.3"
                     }
                 }
               }

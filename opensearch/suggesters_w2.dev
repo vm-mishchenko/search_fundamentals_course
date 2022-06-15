@@ -1,5 +1,6 @@
 #######
 #
+# Spelling correction
 # Setup
 #
 #######
@@ -32,7 +33,8 @@ PUT /suggesters_index
     "mappings": {
         "properties": {
             "title": {
-              "type": "text", "analyzer": "english",
+              "type": "text",
+              "analyzer": "english",
               "fields":{
                 "trigrams":{
                   "type": "text",
@@ -96,7 +98,7 @@ PUT /suggesters_index/_doc/doc_d
 
 ###########
 
-# Term suggestion:
+# Spelling correction: Term suggestion:
 GET /suggesters_index/_search
 {
   "suggest": {
@@ -111,17 +113,17 @@ GET /suggesters_index/_search
   }
 }
 
+
+# Phrase Suggestion requires some before-hand preparation
 # Trigram Analysis:
 POST /suggesters_index/_analyze
 {
   "analyzer": "trigram",
   "text": ["Top Gun Gameboy Advance"]
-
 }
 
 
-
-# Phrase Suggestion 1
+# Spelling correction: Phrase Suggestion 1
 GET /suggesters_index/_search
 {
   "suggest": {
@@ -143,7 +145,7 @@ GET /suggesters_index/_search
   }
 }
 
-# Phrase Suggestion 2: max errors
+# Spelling correction: Phrase Suggestion 2: max errors
 GET /suggesters_index/_search
 {
   "suggest": {
@@ -166,7 +168,7 @@ GET /suggesters_index/_search
   }
 }
 
-# Phrase Suggestion 3: collation
+# Spelling correction: Phrase Suggestion 3: collation
 GET /suggesters_index/_search
 {
   "suggest": {

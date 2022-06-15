@@ -1,5 +1,57 @@
-# Queries from Open Search dev panel
+## Spelling
 
+### Term suggestion
+Correction is looking directly in the existing index. Other options might be: logs and dictionary. More in my course 
+```shell
+GET /suggesters_index/_search
+{
+  "suggest": {
+    "text": "huonds",
+    "my-custom-name":{
+      "term":{
+        "field":"title",
+        "min_word_length": 2,
+        "suggest_mode": "popular"
+      }
+    }
+  }
+}
+```
+
+## Custom "word_delimiter_graph" filter
+```shell
+GET /_analyze
+{
+  "tokenizer": "whitespace",
+  "filter": [
+    {
+      "type": "word_delimiter_graph",
+      "catenate_all": true,
+      "catenate_words": true
+    }
+  ],
+  "text": "Neil's-Super-Duper-XL500--42+AutoCoder"
+}
+```
+
+## Custom "shingle" filter
+```shell
+GET /_analyze
+{
+  "tokenizer": "whitespace",
+  "filter": [
+    {
+      "type": "shingle",
+      "min_shingle_size": 2,
+      "max_shingle_size": 3
+    }
+  ],
+  "text": "Some text or another"
+}
+```
+
+
+## Queries from week 1
 ```
 # mapping
 GET /bbuy_products
@@ -119,5 +171,23 @@ GET bbuy_products/_search
       "onSale": false
     }
   }
+}
+
+# rescore structure
+{
+  "query": {
+    // Query DSL
+    // https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-dsl.html
+  },
+  "rescore": [
+    {
+        "window_size": 1,
+        "query": {
+            "rescore_query": {
+                // Query DSL
+            }
+        }
+    }
+  ]
 }
 ```
