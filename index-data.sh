@@ -42,10 +42,18 @@ curl -k -X DELETE -u admin:admin  "https://localhost:9200/bbuy_queries" -H 'Cont
 echo
 echo "Create 'bbuy_products' index"
 curl -k -X PUT -u admin:admin  "https://localhost:9200/bbuy_products" -H 'Content-Type: application/json' -d "@$PRODUCTS_JSON_FILE"
+if [ $? -ne 0 ] ; then
+  echo "Failed to create index with settings of $PRODUCTS_JSON_FILE"
+  exit 2
+fi
 
 echo
 echo "Create 'bbuy_queries' index"
 curl -k -X PUT -u admin:admin  "https://localhost:9200/bbuy_queries" -H 'Content-Type: application/json' -d "@$QUERIES_JSON_FILE"
+if [ $? -ne 0 ] ; then
+  echo "Failed to create index with settings of $QUERIES_JSON_FILE"
+  exit 2
+fi
 
 cd $PYTHON_LOC
 echo ""
