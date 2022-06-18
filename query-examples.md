@@ -1,7 +1,30 @@
 ## Spelling
 
-### Term suggestion
-Correction is looking directly in the existing index. Other options might be: logs and dictionary. More in my course 
+### Phrase suggestor (spelling correction)
+```shell
+GET bbuy_products/_search
+{
+  "suggest": {
+    "text": "some query",
+    "phrase_suggest": {
+      "phrase": {
+        "field": "suggest.trigrams",
+        "direct_generator": [
+          {
+            "field": "title.trigrams",
+            "min_word_length": 2,
+            "suggest_mode": "popular"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+
+### Term suggestion (spelling correction)
+Spelling correction is looking directly in the existing index. Other options might be: logs and dictionary. More in my course notess
 ```shell
 GET /suggesters_index/_search
 {

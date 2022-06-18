@@ -9,6 +9,7 @@ GET bbuy_products/_search
   "_source": "name"
 }
 
+# `iphone4` - produces zero results, we can fix it using fuzzy search. See below
 GET bbuy_products/_search
 {
   "query": {
@@ -26,7 +27,8 @@ GET bbuy_products/_search
   "query": {
     "match": {
       "name":{
-        "query": "iphone4"
+        "query": "iphone4",
+        "fuzziness": "AUTO"
       }
 
     }

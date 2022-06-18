@@ -216,7 +216,6 @@ def analyze_results(results_df, no_results_df, new_queries_df, opensearch, index
 # loop through, run the explain and extract the scores
 # The dataframe is a joined one
 def compare_explains(join, type, opensearch, index, ltr_model_name, ltr_store_name, train_gb, max_explains=100):
-
     query = []
     sku = []
     scores = [] # the top level score

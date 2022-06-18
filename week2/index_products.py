@@ -136,7 +136,8 @@ def index_file(file, index_name):
 @click.option('--source_dir', '-s', help='XML files source directory')
 @click.option('--index_name', '-i', default="bbuy_products", help="The name of the index to write to")
 @click.option('--workers', '-w', default=8, help="The number of workers to use to process files")
-def main(source_dir: str, index_name: str, workers: int):
+@click.option('--called_from_index_data', '-c', default="false", help="The name of the index to write to")
+def main(source_dir: str, index_name: str, workers: int, called_from_index_data: str):
 
     files = glob.glob(source_dir + "/*.xml")
     docs_indexed = 0

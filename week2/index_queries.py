@@ -34,7 +34,7 @@ def get_opensearch():
     return client
 
 @click.command()
-@click.option('--source_file', '-s', help='source csv file', required=True)
+@click.option('--source_file', '-s', default="/workspace/search_fundamentals_course/document-examples/train-example.csv", help='source csv file', required=True)
 @click.option('--index_name', '-i', default="bbuy_queries", help="The name of the index to write to")
 def main(source_file: str, index_name: str):
     client = get_opensearch()
@@ -76,7 +76,8 @@ def main(source_file: str, index_name: str):
             "category": group["category"].unique().tolist()
         }
         docs.append({'_index': index_name , '_source': doc})
-        if len(docs) % 10 == 0:
+        if len(docs) % 1000 == 0:
+            logger.info('Bulk saving')
             bulk(client, docs, request_timeout=60)
             docs = []
     if len(docs) > 0:

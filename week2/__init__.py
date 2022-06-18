@@ -10,6 +10,7 @@ def create_app(test_config=None):
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
+        # 1032916
         app.config.from_envvar('LTR_APPLICATION_SETTINGS', silent=True)
         PRIOR_CLICKS_LOC = os.environ.get("PRIOR_CLICKS_LOC", "/workspace/datasets/train.csv")
         print("PRIOR CLICKS: %s" % PRIOR_CLICKS_LOC)
