@@ -20,3 +20,11 @@ flask run --port 3000
 # index data
 ./index-data.sh -y ./week2 -p ./week2/conf/bbuy_products.json -q ./week2/conf/bbuy_queries.json
 ```
+
+## install jupiter server
+```shell
+# for some reason has to install "jupyter_server" first. Without it `pip install jupyter` did not work.
+pip install jupyter_server
+
+pip install jupyter
+```

@@ -203,20 +203,22 @@ def add_click_priors(query_obj, user_query, priors_gb):
     try:
         # boost the docs by SKU that were clicked previously
         prior_clicks_for_query = priors_gb.get_group(user_query)
+        number_of_times_query_was_issued = prior_clicks_for_query['sku'].count()
 
         if prior_clicks_for_query is not None and len(prior_clicks_for_query) > 0:
             click_prior = ""
-            #### W2, L1, S1
-            # Create a string object of SKUs and weights that will boost documents matching the SKU
-            for name, group in prior_clicks_for_query.groupby("sku"):
-                # how many times a particular sku was clicked for the user query
-                times_sku_was_clicked = len(group)
 
-                # Need take into account the total number of clicks.
-                # Panda skill quite limited( Don't want to spend time right now figuring out how to do it properly.
-                boost = times_sku_was_clicked
+            # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.value_counts.html
+            # value_counts - Return a Series containing counts of unique rows in the DataFrame.
+            # return Series - {<SKU>: <Unique number>}
+            counts_of_unique_skus = prior_clicks_for_query['sku'].value_counts()
 
-                click_prior += " " + str(name) + "^" + str(boost)
+            SKU_CTR = (
+                counts_of_unique_skus/number_of_times_query_was_issued
+            ).to_dict()
+
+            for sku, ctr in SKU_CTR.items():
+                click_prior += f"{sku}^{ctr} "
 
             if click_prior != "":
                 # Implement a query object that matches on the ID or SKU with weights of
@@ -236,6 +238,34 @@ def add_click_priors(query_obj, user_query, priors_gb):
         pass
 
 
+def add_category_priors(query_obj, user_query, priors_gb):
+    try:
+        # boost the docs by category that were clicked previously
+        prior_clicks_for_query = priors_gb.get_group(user_query)
+
+        if prior_clicks_for_query is None or len(prior_clicks_for_query) > 0:
+            return
+
+        category_gb = prior_clicks_for_query.groupby('category')
+        sorted_by_clicks = category_gb['user'].agg(['count']).sort_values('count', ascending=False)
+
+        if len(sorted_by_clicks) == 0:
+            return
+
+        most_clicked_category_for_query = sorted_by_clicks.reset_index().iloc[0]['category']
+        category_prior_query_obj = {
+            # https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-dsl-query-string-query.html#_boosting
+            'match': {
+                'categoryPathIds': most_clicked_category_for_query
+            }
+        }
+
+        query_obj["query"]["function_score"]["query"]["bool"]["should"].append(category_prior_query_obj)
+
+    except KeyError as ke:
+        print(ke)
+        print(f"Can't process user_query: {user_query} for click priors")
+        pass
 
 
 def add_aggs(query_obj):
