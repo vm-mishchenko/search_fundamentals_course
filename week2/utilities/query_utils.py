@@ -211,10 +211,10 @@ def add_click_priors(query_obj, user_query, priors_gb):
             # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.value_counts.html
             # value_counts - Return a Series containing counts of unique rows in the DataFrame.
             # return Series - {<SKU>: <Unique number>}
-            counts_of_unique_skus = prior_clicks_for_query['sku'].value_counts()
+            counts_of_previous_clicks_per_skus = prior_clicks_for_query['sku'].value_counts()
 
             SKU_CTR = (
-                counts_of_unique_skus/number_of_times_query_was_issued
+                counts_of_previous_clicks_per_skus/number_of_times_query_was_issued
             ).to_dict()
 
             for sku, ctr in SKU_CTR.items():
